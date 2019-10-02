@@ -1,0 +1,23 @@
+{
+  "name": "naturecalling",
+  "version": "1.0.0",
+  "description": "NatureCalling is a website where user can explore more about local campaign sites.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jdvachhani95/natureCalling.git"
+  },
+  "author": "Jaydeep Vachhani",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jdvachhani95/natureCalling/issues"
+  },
+  "homepage": "https://github.com/jdvachhani95/natureCalling#readme",
+  "dependencies": {
+    "ejs": "^2.7.1",
+    "express": "^4.17.1"
+  }
+}
