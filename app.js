@@ -23,18 +23,18 @@ var campgroundSchema = new mongoose.Schema({
 });
 var Campground = mongoose.model("Campground", campgroundSchema);
 
-Campground.create({
-    name:"Salman creek", 
-    image:"https://images.unsplash.com/photo-1508873696983-2dfd5898f08b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60",
-    description:"This is a very beautiful camping site right next to nature."
-    },function(err,campground){
-    if(err){
-        console.log(err);
-    }
-    else{
-        console.log(campground);
-    }
-});
+// Campground.create({
+//     name:"Salman creek", 
+//     image:"https://images.unsplash.com/photo-1508873696983-2dfd5898f08b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60",
+//     description:"This is a very beautiful camping site right next to nature."
+//     },function(err,campground){
+//     if(err){
+//         console.log(err);
+//     }
+//     else{
+//         console.log(campground);
+//     }
+// });
 
 // var campgrounds = [
 //     {name:"Salman creek", image:"https://images.unsplash.com/photo-1508873696983-2dfd5898f08b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60"},
@@ -55,7 +55,7 @@ app.get("/campgrounds", function(req, res) {
             console.log(err);
         }
         else{
-            res.render("campgrounds", {campgrounds:allCampgrounds});
+            res.render("index", {campgrounds:allCampgrounds});
         }
     });
 });
