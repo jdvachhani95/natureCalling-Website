@@ -65,7 +65,7 @@ app.get("/campgrounds/new", function(req, res){
 });
 
 app.get("/campgrounds/:id",function(req, res){
-
+    res.render("show");
 });
 
 
