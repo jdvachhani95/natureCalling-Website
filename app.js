@@ -18,14 +18,16 @@ app.set("view engine", "ejs");
 
 var campgroundSchema = new mongoose.Schema({
     name: String,
-    image: String
+    image: String,
+    description: String
 });
 var Campground = mongoose.model("Campground", campgroundSchema);
 
 // Campground.create({
 //     name:"Salman creek", 
-//     image:"https://images.unsplash.com/photo-1508873696983-2dfd5898f08b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60"
-// },function(err,campground){
+//     image:"https://images.unsplash.com/photo-1508873696983-2dfd5898f08b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60",
+//     description:"This is a very beautiful camping site right next to nature."
+//     },function(err,campground){
 //     if(err){
 //         console.log(err);
 //     }
@@ -53,21 +55,33 @@ app.get("/campgrounds", function(req, res) {
             console.log(err);
         }
         else{
-            res.render("campgrounds", {campgrounds:allCampgrounds});
+            res.render("index", {campgrounds:allCampgrounds});
         }
     });
-    // res.render("campgrounds", {campgrounds:campgrounds});
 });
 
 app.get("/campgrounds/new", function(req, res){
     res.render("new");
 });
 
+app.get("/campgrounds/:id",function(req, res){
+    Campground.findById(req.params.id, function(err,foundCampgrounds){
+        if(err){
+            console.log(err);
+        }
+        else{
+            res.render("show", {campground:foundCampgrounds});
+        }
+    })
+});
+
+
 app.post("/campgrounds", function(req, res){
     
     var name = req.body.name;
     var image = req.body.image;
-    var newCampground = {name:name, image:image};
+    var desc = req.body.description;
+    var newCampground = {name:name, image:image, description:desc};
     
     //Create new campground on DB
     Campground.create(newCampground, function(err,newlyCreated){
