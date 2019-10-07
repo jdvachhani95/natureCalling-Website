@@ -1,8 +1,11 @@
 var express     = require("express"),
     app         = express(),
     bodyParser  = require("body-parser"),
-    mongoose    = require("mongoose")
+    mongoose    = require("mongoose"),
+    Campground  = require("./models/campground"),
+    seedDB      = require("./seeds");
 
+    seedDB();
 // ***** To avoid the mongodb error please see this link:https://mongoosejs.com/docs/deprecations.html
 mongoose.set('useNewUrlParser', true);
 mongoose.set('useFindAndModify', false);
@@ -13,15 +16,6 @@ mongoose.set('useUnifiedTopology', true);
 mongoose.connect("mongodb://localhost/natureCalling");
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
-
-//DB Schema setup
-
-var campgroundSchema = new mongoose.Schema({
-    name: String,
-    image: String,
-    description: String
-});
-var Campground = mongoose.model("Campground", campgroundSchema);
 
 // Campground.create({
 //     name:"Salman creek", 
@@ -105,3 +99,4 @@ app.listen(port, function() {
     console.log("Server Connected at "+port);
 });
 
+// cd C:\Program Files\MongoDB\Server\4.0\bin
