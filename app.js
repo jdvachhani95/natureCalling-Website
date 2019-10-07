@@ -17,6 +17,7 @@ mongoose.set('useUnifiedTopology', true);
 mongoose.connect("mongodb://localhost/natureCalling");
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
+app.use(express.static(__dirname + "/public"));
 
 // Campground.create({
 //     name:"Salman creek", 
