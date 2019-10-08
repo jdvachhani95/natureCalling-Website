@@ -9,7 +9,8 @@ var express         = require("express"),
     User            = require("./models/user"),
     seedDB          = require("./seeds")
 
-    seedDB();
+    // seedDB();
+    
 // ***** To avoid the mongodb error please see this link:https://mongoosejs.com/docs/deprecations.html
 mongoose.set('useNewUrlParser', true);
 mongoose.set('useFindAndModify', false);
