@@ -11,7 +11,8 @@ var express         = require("express"),
     User            = require("./models/user"),
     seedDB          = require("./seeds")
 
-    // seedDB();
+//*** To seed all campgrounds from the database */    
+// seedDB();
     
 // ***** To avoid the mongodb error please see this link:https://mongoosejs.com/docs/deprecations.html
 mongoose.set('useNewUrlParser', true);
@@ -46,6 +47,7 @@ passport.use(new LocalStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
+// apply on every single function
 app.use(function(req, res, next){
     res.locals.currentUser = req.user;
     res.locals.error = req.flash("error");
@@ -53,14 +55,16 @@ app.use(function(req, res, next){
     next();
  });
 
+// Refactor the route with just'/'  
 app.use("/", indexRoutes);
 app.use("/campgrounds", campgroundRoutes);
 app.use("/campgrounds/:id/comments", commentRoutes);
 app.use("/campgrounds/:id/reviews", reviewRoutes);
 
+// function to start local server at port 3000
 var port = 3000;
 app.listen(port, function() {
     console.log("Server Connected at "+port);
 });
 
-// cd C:\Program Files\MongoDB\Server\4.0\bin
+// cd C:\Program Files\MongoDB\Server\4.0\bin address where mongodb database located 
