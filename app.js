@@ -27,7 +27,9 @@ var commentRoutes    = require("./routes/comments"),
     campgroundRoutes = require("./routes/campgrounds"),
     indexRoutes      = require("./routes/index")
 
-mongoose.connect("mongodb://localhost/natureCalling");
+//mongoose.connect("mongodb://localhost/natureCalling");
+mongoose.connect("mongodb+srv://j_vachhani:DRE@Msky1995@clusterjd-nhth1.mongodb.net/test?retryWrites=true&w=majority");
+
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
 app.use(express.static(__dirname + "/public"));
@@ -62,9 +64,9 @@ app.use("/campgrounds/:id/comments", commentRoutes);
 app.use("/campgrounds/:id/reviews", reviewRoutes);
 
 // function to start local server at port 3000
-var port = 3000;
+const port = 3000;
 app.listen(port, function() {
-    console.log("Server Connected at "+port);
+    console.log("Server Connected at " + port);
 });
 
 // cd C:\Program Files\MongoDB\Server\4.0\bin address where mongodb database located 
