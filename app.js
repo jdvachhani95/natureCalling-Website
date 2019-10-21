@@ -27,7 +27,9 @@ var commentRoutes    = require("./routes/comments"),
     campgroundRoutes = require("./routes/campgrounds"),
     indexRoutes      = require("./routes/index")
 
-mongoose.connect("mongodb://localhost/natureCalling");
+//mongoose.connect("mongodb://localhost/natureCalling");
+mongoose.connect("mongodb+srv://j_vachhani:DRE@Msky1995@clusterjd-nhth1.mongodb.net/test?retryWrites=true&w=majority");
+
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
 app.use(express.static(__dirname + "/public"));
