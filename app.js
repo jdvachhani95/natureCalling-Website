@@ -62,9 +62,9 @@ app.use("/campgrounds/:id/comments", commentRoutes);
 app.use("/campgrounds/:id/reviews", reviewRoutes);
 
 // function to start local server at port 3000
-var port = 3000;
+const port = 3000;
 app.listen(port, function() {
-    console.log("Server Connected at "+port);
+    console.log("Server Connected at " + port);
 });
 
 // cd C:\Program Files\MongoDB\Server\4.0\bin address where mongodb database located 
